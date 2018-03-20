@@ -14,6 +14,19 @@
 	<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
   
       <title>Log In</title>
+      
+      
+      
+      
+      <style>
+body
+{
+    background-image: url("./resources/images/1.jpg");
+    background-repeat: no-repeat;
+	opacity:0.9;
+    background-size: 100%; 
+    padding-bottom: 75px;;
+}</style>
    </head>
    <body>
    <body style="background-color:powderblue;">
@@ -24,7 +37,7 @@
 
 <div class="jumbotron container">
   <h2>Log In</h2>
-  <f:form action="loginProcess" method="post" modelAttribute="login">
+  <%-- <f:form action="loginProcess" method="post" modelAttribute="login">
     <div class="form-group">
       <label for="email">Email:</label>
       <f:input path="EmailID" class="form-control" id="email" placeholder="Enter email" name="email"/>
@@ -37,7 +50,22 @@
       <label><input type="checkbox" name="remember"> Remember me</label>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
-  </f:form>
+  </f:form> --%>
+  
+     <form action='<c:url value="/login" ></c:url>' class="form-signin" method="post">
+                <span id="reauth-email" class="reauth-email"></span>
+                <h4 class="input_title">Email</h4>
+                <input type="text" id="inputEmail" name="username" class="login_box" placeholder="email" required autofocus>
+                <h4 class="input_title">Password</h4>
+                <input type="password" id="inputPassword" name="password" class="login_box" placeholder="******" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        
+                    </label>
+                </div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <button class="btn btn-lg btn-primary" type="submit">Login</button>
+            </form><!-- /form -->
 </div>
    
    </body>

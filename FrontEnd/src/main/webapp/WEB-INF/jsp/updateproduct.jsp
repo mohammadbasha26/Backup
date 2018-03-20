@@ -23,13 +23,13 @@
 <body>
 
 <div class="container">
-            <f:form modelAttribute="uproduct" action="${pageContext.request.contextPath}/saveUProduct" class="form-horizontal" role="form" method="post" >
+            <form modelAttribute="uproduct" action="${pageContext.request.contextPath}/admin/saveUProduct" class="form-horizontal" enctype="multipart/form-data" role="form" method="post" >
                 <h2>Product Details</h2>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Product Name</label>
                     <div class="col-sm-9">
-                        <f:input path="productName"  placeholder="Product Name" class="form-control" />
-                        <f:hidden path="productID"/>
+                        <input name="productName" value="${uproduct.productName}" placeholder="Product Name" class="form-control" />
+                        <input type="hidden" name="productID" value="${uproduct.productID}"/>
                         <span class="help-block"> </span>
                     </div>
                 
@@ -37,9 +37,13 @@
                 <div class="form-group">
                     <label for="ProductPrice" class="col-sm-3 control-label">Product Price</label>
                     <div class="col-sm-3">
-                        <f:input path="productPrice" id="ProductPrice" placeholder="ProductPrice" class="form-control"/>
+                        <input name="productPrice"  value="${uproduct.productPrice}" id="ProductPrice" placeholder="ProductPrice" class="form-control"/>
                     </div>
                 </div>
+                
+                
+                
+                
                 
                 
                 
@@ -47,8 +51,45 @@
                   <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Product In Stock</label>
                     <div class="col-sm-3">
-                        <f:input path="productInStock" placeholder="Product In Stock" class="form-control"/>
+                        <input name="productInStock"  value="${uproduct.productInStock}"  placeholder="Product In Stock" class="form-control"/>
                     </div>
+                </div>
+                
+                
+                
+                 <div class="form-group">
+                                   <label for="clist" class="col-sm-3 control-label">Category List</label>
+               
+             
+				<div class="col-sm-3">
+				<select name="category"  class="form-control">
+					  <option value="NONE" >-------- Select -------</option>
+					  						<c:forEach items="${clist}" var="c">
+					  
+					  <option  value="${c.categoryID}" >${c.categoryName}</option>
+					
+					  </c:forEach>
+				       </select>
+                                </div>
+			
+                </div>
+                
+                
+                
+                              <div class="form-group">
+                                   <label for="ProductPrice" class="col-sm-3 control-label">Supplier List</label>
+               
+             
+				<div class="col-sm-3">
+				<select name="supplier"  class="form-control">
+					  <option value="NONE" >---------select------------</option>
+					  <c:forEach items="${slist}" var="s">
+					  <option  value="${s.supplierID}" >${s.supplierName}</option>
+					  
+					  </c:forEach>
+				       </select>
+                                </div>
+			
                 </div>
                
               
@@ -56,18 +97,34 @@
                     
                
               <div class="form-group">
-                <label for="ProductDesc" class="col-sm-3 control-label">Product Description</label>
+                <label for="productDesc"  placeholder="Product Description"  class="col-sm-3 control-label">Product Description</label>
                  <div class="col-sm-9">
                                   
-              <f:textarea path="productDesc"  placeholder="ProductDesc" class="form-control"/>
+<!--               <textarea name="productDesc" class="form-control"/>
+ -->               <textarea class="form-control"  name="productDesc" rows="5" id="description"  >${uproduct.productDesc}</textarea>
               </div>
               </div>
+              
+              
+              
+              
+              
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Image</label>
+                    <div class="col-sm-3">
+              <input class="form-control" type="file" name="file" accept="image/*"/>                    </div>
+                </div>
+              
+              
+              
+              
+              
                 <div class="form-group">
                     <div class="col-sm-3 col-sm-offset-3">
                         <button type="submit" class="btn btn-primary btn-block">Update</button>
                     </div>
                 </div>
-            </f:form> <!-- /form -->
+            <form> <!-- /form -->
         </div> <!-- ./container -->
 </body>
 </html>

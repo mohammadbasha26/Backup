@@ -51,6 +51,17 @@
                 
                 
                 
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                   <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Product In Stock</label>
                     <div class="col-sm-3">

@@ -13,13 +13,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.DAO.ProductDAO;
 import com.niit.model.Product;
-@Controller
+//@Controller
 public class ProductController {
-	@Autowired
-ProductDAO productDAO;	
+//	@Autowired
+//ProductDAO productDAO;	
 	
 
-	   
+	   /*
 	   @RequestMapping(value = "/product", method = RequestMethod.GET)
 	   public String product(Model product) {
 		   product.addAttribute("product", new Product());
@@ -89,7 +89,7 @@ ProductDAO productDAO;
 			
 				return ma;
 
-			}
+			}*/
 
 		
 		  

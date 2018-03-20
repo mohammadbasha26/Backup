@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.niit.DAO.SupplierDAO;
-import com.niit.model.Product;
 import com.niit.model.Supplier;
 
 
 
-@Controller
+//@Controller
 public class SupplierController {
 	
-
+/*
 	@Autowired
 	SupplierDAO supplierDAO;	
 	
@@ -96,6 +95,6 @@ public class SupplierController {
 					return su;
 
 				}
-
+*/
 
 }

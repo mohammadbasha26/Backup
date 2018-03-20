@@ -14,10 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.niit.DAO.CategoryDAO;
 import com.niit.model.Category;
 
-@Controller
+//@Controller
 public class CategoryController {
 
-	@Autowired
+	/*@Autowired
 	CategoryDAO categoryDAO;
 
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
@@ -86,5 +86,5 @@ public class CategoryController {
 	
 		return mav;
 
-	}
+	}*/
 }

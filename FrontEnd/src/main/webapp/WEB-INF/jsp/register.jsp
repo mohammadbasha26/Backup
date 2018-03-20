@@ -31,6 +31,8 @@
                         <span class="help-block"> </span>
                     </div>
                 </div>
+                
+                </div>
                 <div class="form-group">
                     <label for="email" class="col-sm-3 control-label">Email</label>
                     <div class="col-sm-9">

@@ -25,7 +25,7 @@
 <body>
 
 <div class="container">
-            <f:form  modelAttribute="ucat" action="${pageContext.request.contextPath}/updateSCategory" class="form-horizontal" role="form" method="post"  >
+            <f:form  modelAttribute="ucat" action="${pageContext.request.contextPath}/admin/updateSCategory" class="form-horizontal" role="form" method="post"  >
                 <h2>Category Details</h2>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Category Name</label>

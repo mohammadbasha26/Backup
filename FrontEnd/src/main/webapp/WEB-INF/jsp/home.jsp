@@ -1,10 +1,9 @@
- 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="f" %>
      
  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
-  <%@include file="header.jsp"%> 
+  
   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,8 +17,23 @@ pageEncoding="ISO-8859-1"%>
 
 
 <title>Home</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
 <body> 
+<%@include file="header.jsp"%> 
    
 
     <!-- Page Content -->
@@ -28,16 +42,16 @@ pageEncoding="ISO-8859-1"%>
 
         <div class="row">
 
-            <div class="col-md-3">
+           <!--  <div class="col-md-3">
                 <p class="lead">Toy's Store</p>
                  <div class="list-group">
                     <a href="#" class="list-group-item">Category 1</a>
                     <a href="#" class="list-group-item">Category 2</a>
                     <a href="#" class="list-group-item">Category 3</a>
                 </div> 
-            </div>
+            </div> -->
 
-            <div class="col-md-9">
+            <div class="col-md-12">
 
                 <div class="row carousel-holder">
 
@@ -182,12 +196,12 @@ pageEncoding="ISO-8859-1"%>
                         </div>
                     </div>
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
+                    <!-- <div class="col-sm-4 col-lg-4 col-md-4">
                         <h4><a href="#">Like this template?</a>
                         </h4>
                         <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
                         <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -206,7 +220,7 @@ pageEncoding="ISO-8859-1"%>
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>Copyright &copy; First WEB application</p>
                 </div>
             </div>
         </footer>

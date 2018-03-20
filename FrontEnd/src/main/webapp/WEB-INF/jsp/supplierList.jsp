@@ -7,6 +7,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+<link href="<c:url value="/resources/css/bootstrap.min.css"  />" rel="stylesheet">
+
+    <!-- Custom CSS -->
+ 	<link href="<c:url value="/resources/css/shop-homepage.css"  />" rel="stylesheet">
+             <!-- jQuery -->
+	<script type="text/javascript" src="<c:url value="/resources/js/jquery-3.2.1.js"/>"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+	<script type="text/javascript" src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+               
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Supplier List</title>
 

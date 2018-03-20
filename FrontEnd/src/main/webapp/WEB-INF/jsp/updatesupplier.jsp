@@ -23,7 +23,7 @@
 <body>
 
 <div class="container">
-            <f:form class="form-horizontal" role="form" method="post" modelAttribute="usupplier" action="${pageContext.request.contextPath}/saveUSupplier">
+            <f:form class="form-horizontal" role="form" method="post" modelAttribute="usupplier" action="${pageContext.request.contextPath}/admin/saveUSupplier">
                 <h2>Supplier Details</h2>
                 <div class="form-group">
                     <label for="firstName" class="col-sm-3 control-label">Supplier Name</label>

@@ -1,18 +1,22 @@
 package com.niit.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.niit.DAO.CategoryDAO;
+import com.niit.DAO.ProductDAO;
 import com.niit.DAO.UserDAO;
+import com.niit.model.Category;
+import com.niit.model.Product;
 import com.niit.model.User;
 
 
@@ -23,14 +27,86 @@ public class UserController {
 	UserDAO userDAO;
 	
 	
+	@Autowired
+	CategoryDAO categoryDAO;
+	
+	
+
+	
+	@Autowired
+	ProductDAO productDAO;
+	
+	@RequestMapping("/error")
+	public  String errorPage(){
+		return "error";
+		
+	}
+	
+	
+	
+/*	
+	@RequestMapping("/test")
+	public  String test(){
+		return "productclist";
+		
+	}*/
+	
+
+	@RequestMapping(value="/productCustList") 
+	public ModelAndView displayCustProducts(@RequestParam("cid") int cid)
+	{ 
+		System.out.println(cid); 
+	ModelAndView mv=new ModelAndView("productclist"); 
+	//mv.getModelMap().addAttribute("custProducts",productDAO.getProductsByCategory(cid));
+	
+	mv.addObject("custProducts",productDAO.getProductsByCategory(cid));
+	return mv; 
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@RequestMapping("/userLogged")
+	public  String userLogged(){
+		return "redirect:/home";
+		
+	}
+	
+	
+	@ModelAttribute
+	public void addAttributes(Model model) {
+		
+		List<Category> clist= categoryDAO.getCategories();
+		
+		
+		
+		for(Category c:clist) {
+			System.out.println("ccccccccccccccccccccccccccccccc----------------------------"+c.getCategoryName());
+		}
+	   model.addAttribute("catList",clist);
+	} 
+	@RequestMapping("/login")
+	public ModelAndView login() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("login");
+		return mav;
+
+	}
+	
+	/*
 	  @RequestMapping(value = "/login", method = RequestMethod.GET)
 	  public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
 	    ModelAndView mav = new ModelAndView("login");
 	    mav.addObject("login", new User());
 	    return mav;
 	  }
-	  
-	  @RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
+	  */
+	 /* @RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
 	  public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
 	  @ModelAttribute("login") User login) {
 	    ModelAndView mav = null;
@@ -45,9 +121,9 @@ public class UserController {
 	    }
 	    return mav;
 	 
-	  }
+	  }*/
 	   
-	   
+	/*   
 	  @RequestMapping(value = "/logout", method = RequestMethod.GET)
 	   public String logout(HttpServletRequest request) {
 		 HttpSession hs=request.getSession();
@@ -55,7 +131,7 @@ public class UserController {
 		 hs.invalidate();
 		 
 	      return "home";
-	   }
+	   }*/
 	    
 	  
 	  
@@ -78,6 +154,7 @@ public class UserController {
 	  @RequestMapping( value = "/saveRegister",method = RequestMethod.POST)
 	   public ModelAndView register(@ModelAttribute User cmd){
 	       ModelAndView mav=new ModelAndView();
+	       cmd.setRole("ROLE_USER");
 	       userDAO.addUser(cmd);
 	       mav.setViewName("home");
 	   return mav;
@@ -85,11 +162,72 @@ public class UserController {
 	   } 
 	       
 	   
+	  
+	  @RequestMapping(value="/productDescription/{ProductID}")
+		public ModelAndView productDescription(@PathVariable("ProductID") int ProductID)
+		
+		{
+			
+			ModelAndView mav=new ModelAndView();
+			
+			Product p=(Product) productDAO.getProduct(ProductID);
+			
+			mav.addObject("product", p);
+			
+			mav.setViewName("productDescription");
+			return mav;
+					
+			
+			
+		}
+	  
+	  
+	  
 	   
 	   @RequestMapping(value = "/about", method = RequestMethod.GET)
 	   public String about() {
 	      return "about";
 
 	}
+
+	   
+		/*  @RequestMapping(value="/cart/{ProductID}")
+			public ModelAndView cart(@PathVariable("ProductID") int ProductID)
+			
+			{
+				
+				ModelAndView cart=new ModelAndView();
+				
+				Product product=(Product) productDAO.getProduct(ProductID);
+				
+				cart.addObject("product", product);
+				
+				cart.setViewName("cart");
+				return cart;
+			}
+		 
+	   @RequestMapping(value = "/cart", method = RequestMethod.GET)
+	   public String cart() {
+	      return "cart";
+	   }
+	   
+	   
+	   
+	   
+	   @RequestMapping(value = "/bill", method = RequestMethod.GET)
+	   public String bill() {
+	      return "bill";
+	   }
+	   
+	   @RequestMapping(value = "/payment", method = RequestMethod.GET)
+	   public String paymment() {
+	      return "payment";
+	   }*/
+	   
+	   
+	   
+	   
+	   
+	
 
 }
