@@ -13,6 +13,8 @@ public interface ProductDAO {
 	public Product getProduct (int ProductID);	
 	
 	public List<Product> getProducts();
+	public List<Product> getProductsByCategory(int cid);
+	public List<Product> getProductsBySupplier(int sid);
 
 	
 }

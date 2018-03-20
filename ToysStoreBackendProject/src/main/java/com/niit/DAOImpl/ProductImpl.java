@@ -2,6 +2,7 @@
 
 	import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,7 +90,35 @@ import com.niit.model.Product;
 			}
 
 
-
+			public List<Product> getProductsByCategory(int cid) {
+				Session session=sessionFactory.openSession();
+				/*List<Product> products =null;
+				session.beginTransaction();
+				Query q=session.createQuery("from product where categoryid=:categoryid"); 
+				q.setParameter(":categoryid", cid);
+				
+			products=	q.getResultList();
+			session.getTransaction().commit();
+				 return products;*/
+				
+				
+				List<Product> products =null;
+				session.beginTransaction();
+				products= session.createQuery("from Product where categoryID="+cid).list();   
+				session.getTransaction().commit();
+				return products;
+			
+			
+			}
+			
+			public List<Product> getProductsBySupplier(int sid) {
+				Session session=sessionFactory.openSession();
+				List<Product> products =null;
+				session.beginTransaction();
+				products= session.createQuery("from Supplier where sid="+sid).list();   
+				session.getTransaction().commit();
+				 return products;
+				}
 
 		
 	

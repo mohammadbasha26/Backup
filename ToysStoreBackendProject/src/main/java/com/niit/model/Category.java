@@ -1,8 +1,13 @@
 package com.niit.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -13,6 +18,11 @@ public class Category {
 	private int categoryID;
 	private String categoryName;
 	private String categoryDesc;
+
+
+@OneToMany(targetEntity=Product.class,  fetch=FetchType.EAGER, mappedBy="category")
+private Set<Product> products = new HashSet<Product>(0);
+
 
 	public int getCategoryID() {
 		return categoryID;
@@ -37,5 +47,17 @@ public class Category {
 	public void setCategoryDesc(String categoryDesc) {
 		this.categoryDesc = categoryDesc;
 	}
+
+	public Set<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Product> products) {
+		this.products = products;
+	}
+	
+	
+	
+	
 
 }

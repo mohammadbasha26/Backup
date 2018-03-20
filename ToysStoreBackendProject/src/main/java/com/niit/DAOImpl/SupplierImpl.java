@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.DAO.SupplierDAO;
-import com.niit.model.Category;
-import com.niit.model.Product;
 import com.niit.model.Supplier;
 
 @Repository(value="supplierDAO")

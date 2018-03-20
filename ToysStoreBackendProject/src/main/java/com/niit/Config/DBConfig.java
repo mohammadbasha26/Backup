@@ -5,7 +5,6 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +18,9 @@ import com.niit.DAO.SupplierDAO;
 import com.niit.DAOImpl.CategoryImpl;
 import com.niit.DAOImpl.ProductImpl;
 import com.niit.DAOImpl.SupplierImpl;
+import com.niit.model.Cart;
 import com.niit.model.Category;
+import com.niit.model.Order;
 import com.niit.model.Product;
 import com.niit.model.Supplier;
 import com.niit.model.User;
@@ -28,7 +29,7 @@ import com.niit.model.User;
 @ComponentScan(basePackages = { "com.niit" })
 
 public class DBConfig {
-	@Bean
+	@Bean(value="dataSource")
 
 	public DataSource getH2DataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -55,6 +56,8 @@ public class DBConfig {
 		factoryBuilder.addAnnotatedClass(Product.class);
 		factoryBuilder.addAnnotatedClass(User.class);
 		factoryBuilder.addAnnotatedClasses(Supplier.class);
+		factoryBuilder.addAnnotatedClasses(Cart.class);
+		factoryBuilder.addAnnotatedClasses(Order.class);
 		factoryBuilder.addProperties(hibernateProp);
 
 		System.out.println("Creating SessionFactory Bean");

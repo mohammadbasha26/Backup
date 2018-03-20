@@ -2,6 +2,7 @@ package com.niit.DAOImpl;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -92,6 +93,23 @@ import com.niit.model.User;
 
 				session.close();
 				return UserFound;
+			}
+
+			@Override
+			public User getUserByEmail(String emailID) {
+				Session session=sessionFactory.openSession();
+				User p=null;
+				try{
+					session.beginTransaction();
+				 p=	(User) session.createQuery("from User where EmailID=?").setParameter(0, emailID).uniqueResult();
+				session.getTransaction().commit();
+					
+					
+				}catch(HibernateException ex){
+					ex.printStackTrace();
+					session.getTransaction().rollback();
+				}
+				return p;
 			}
 
 			

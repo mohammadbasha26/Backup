@@ -12,6 +12,9 @@ import com.niit.model.Category;
 import com.niit.model.User;
 
 @Repository(value="categoryDAO")
+
+
+
 public class CategoryImpl implements CategoryDAO {
 	@Autowired
 	SessionFactory sessionFactory;

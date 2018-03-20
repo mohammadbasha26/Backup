@@ -1,6 +1,7 @@
 	package com.niit.model;
 
-	import javax.persistence.Entity;
+	import javax.persistence.Column;
+import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.Id;
 	import javax.persistence.Table;
@@ -17,12 +18,24 @@
 			@GeneratedValue
 			private int UserID;
 			private String  UserName;
+			
+			@Column(unique=true)
 			private String EmailID;
 			private String  Password;
 			private String  gender;
+			private String  role;
+			private int  MobileNO;
+			private String  UserAddress;
 			
 			
 			
+			
+			public String getRole() {
+				return role;
+			}
+			public void setRole(String role) {
+				this.role = role;
+			}
 			public String getEmailID() {
 				return EmailID;
 			}
@@ -35,9 +48,7 @@
 			public void setGender(String gender) {
 				this.gender = gender;
 			}
-			private int  MobileNO;
-			private String  UserAddress;
-			
+		
 			
 			public int getUserID() {
 				return UserID;
